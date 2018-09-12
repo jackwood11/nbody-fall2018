@@ -1,7 +1,7 @@
 	
 
 /**
- * @author YOUR NAME THE STUDENT IN 201
+ * @author Jack Wood
  * 
  * Simulation program for the NBody assignment
  */
@@ -21,13 +21,15 @@ public class NBody {
 	public static double readRadius(String fname) throws FileNotFoundException  {
 		Scanner s = new Scanner(new File(fname));
 	
-		// TODO: read values at beginning of file to
 		// find the radius
+		int nBodies = s.nextInt();
+		double radius = s.nextDouble();
+		
 		
 		s.close();
 		
 		// TODO: return radius read
-		return 0;	
+		return radius;	
 	}
 	
 	/**
@@ -41,21 +43,22 @@ public class NBody {
 		
 			Scanner s = new Scanner(new File(fname));
 			
-			// TODO: read # bodies, create array, ignore radius
-			int nb = 0; // # bodies to be read
+			int nb = s.nextInt(); // # bodies to be read
+			double radius = s.nextDouble();
+			Body[] bodies = new Body[nb];
 			
 			for(int k=0; k < nb; k++) {
 				
-				// TODO: read data for each body
-				// construct new body object and add to array
+				bodies[k] = new Body(s.nextDouble(), s.nextDouble(), s.nextDouble(),
+						             s.nextDouble(), s.nextDouble(), s.next());
+				
 			}
 			
 			s.close();
 			
-			// TODO: return array of body objects read
-			return null;
+			return bodies;
 	}
-	public static void main(String[] args) throws FileNotFoundException{
+	public static void main(String[] args) throws FileNotFoundException {
 		double totalTime = 157788000.0;
 		double dt = 25000.0;
 		
