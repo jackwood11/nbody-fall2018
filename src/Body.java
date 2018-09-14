@@ -8,7 +8,7 @@ public class Body {
 	private double myMass;
 	private String myFileName;
 	
-	final double G = 6.67e-11;
+	private final double G = 6.67e-11;
 	
 	public Body(double xp, double yp, double xv, double yv, 
 		        double mass, String fileName) {
