@@ -127,4 +127,10 @@ public class Body {
     	myYPos = ny;
     	
     }
+    
+    public void draw() {
+    	
+    	StdDraw.picture(myXPos, myYPos, "images/" + myFileName);
+    	
+    }
 }
