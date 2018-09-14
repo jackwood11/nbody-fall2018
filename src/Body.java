@@ -87,8 +87,8 @@ public class Body {
     	double netFx = 0;
     	
     	for(Body b: bodies) {
-    		
-    		netFx += calcForceExertedByX(b);
+    		if(! b.equals(this))
+    			netFx += calcForceExertedByX(b);
     		
     	}
     	
@@ -101,8 +101,8 @@ public class Body {
     	double netFy = 0;
     	
     	for(Body b: bodies) {
-    		
-    		netFy += calcForceExertedByY(b);
+    		if(! b.equals(this))
+    			netFy += calcForceExertedByY(b);
     		
     	}
     	
