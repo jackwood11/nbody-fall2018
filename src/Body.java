@@ -10,6 +10,7 @@ public class Body {
 	
 	private final double G = 6.67e-11;
 	
+	//constructor for body
 	public Body(double xp, double yp, double xv, double yv, 
 		        double mass, String fileName) {
 		
@@ -22,6 +23,7 @@ public class Body {
 		
 	}
 	
+	//default constructor for body
 	public Body(Body b) {
 		
 		myXPos = b.getX();
@@ -52,18 +54,21 @@ public class Body {
 		return myFileName;
 	}
 	
+	//returns distance from Body b to body the method is being called on
 	public double calcDistance(Body b) {
 		
 		return Math.sqrt(Math.pow((b.getX() - myXPos), 2) + Math.pow(b.getY() - myYPos, 2));
 		
 	}
 	
+	//returns the force exerted by Body p on to the object the method is being called on.
 	public double calcForceExertedBy(Body p) {
 		
 		return (G * (p.getMass() * myMass) / Math.pow(calcDistance(p), 2));
 		
 	}
 	
+	//returns the x-force 
 	public double calcForceExertedByX(Body p) {
 		
 		double Fx;
@@ -73,6 +78,7 @@ public class Body {
 		return Fx;
 	}
 	
+	//returns the y-force
     public double calcForceExertedByY(Body p) {
 		
 		double Fy;
@@ -82,12 +88,14 @@ public class Body {
 		return Fy;
 	}
     
+    //returns the net x force by summing all x forces from all other bodies
     public double calcNetForceExertedByX(Body[] bodies) {
     	
     	double netFx = 0;
     	
     	for(Body b: bodies) {
     		if(! b.equals(this))
+    			
     			netFx += calcForceExertedByX(b);
     		
     	}
@@ -96,6 +104,7 @@ public class Body {
     	
     }
 
+    //returns the net y force by summing all y forces from all other bodies
     public double calcNetForceExertedByY(Body[] bodies) {
     	
     	double netFy = 0;
@@ -110,6 +119,7 @@ public class Body {
     	
     }
     
+    //updates the location of the body based on the time delay and forces
     public void update(double deltaT, double xforce, double yforce) {
     	
     	double ax = xforce / myMass;
@@ -128,6 +138,7 @@ public class Body {
     	
     }
     
+    //draws the body
     public void draw() {
     	
     	StdDraw.picture(myXPos, myYPos, "images/" + myFileName);
