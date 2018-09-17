@@ -1,8 +1,6 @@
-	
-
 /**
- * @author Jack Wood
- * 
+ * @author Jack Wood (did not write skeleton of program)
+ * CS201
  * Simulation program for the NBody assignment
  */
 
@@ -102,8 +100,6 @@ public class NBody {
 			
 			StdDraw.show(10);
 		}
-		
-		// prints final values after simulation
 		
 		System.out.printf("%d\n", bodies.length);
 		System.out.printf("%.2e\n", radius);
